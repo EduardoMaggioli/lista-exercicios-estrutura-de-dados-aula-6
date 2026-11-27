@@ -22,6 +22,7 @@ void lerTexto(const char *mensagem, char *destino, int tamanho)
     if (strchr(destino, '\n') == NULL)
     {
         int caractere;
+
         while ((caractere = getchar()) != '\n' && caractere != EOF)
         {
             /* Descarta o restante da linha. */
@@ -170,6 +171,7 @@ int main(void)
                 break;
 
             case 2:
+            {
                 lerTexto("Digite o nome para buscar: ", nome, sizeof(nome));
 
                 Contato *encontrado = buscarContato(agenda, nome);
@@ -183,7 +185,9 @@ int main(void)
                 {
                     printf("Contato não encontrado.\n");
                 }
+
                 break;
+            }
 
             case 3:
                 lerTexto("Digite o nome para remover: ", nome, sizeof(nome));
